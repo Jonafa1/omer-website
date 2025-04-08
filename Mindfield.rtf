@@ -1,0 +1,927 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2821
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 Menlo-Regular;}
+{\colortbl;\red255\green255\blue255;\red155\green162\blue177;}
+{\*\expandedcolortbl;;\cssrgb\c67059\c69804\c74902;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww28840\viewh14800\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs28 \cf2 \expnd0\expndtw0\kerning0
+<!DOCTYPE html>\
+<html lang="he" dir="rtl">\
+<head>\
+<meta charset="UTF-8">\
+<meta name="viewport" content="width=device-width, initial-scale=1.0">\
+<title>MindField - \uc0\u1506 \u1493 \u1502 \u1512  \u1506 \u1510 \u1497 \u1493 \u1504 \u1497  - \u1488 \u1497 \u1502 \u1493 \u1503  \u1499 \u1491 \u1493 \u1512 \u1490 \u1500  \u1493 \u1508 \u1505 \u1497 \u1499 \u1493 \u1500 \u1493 \u1490 \u1497 \u1497 \u1514  \u1505 \u1508 \u1493 \u1512 \u1496 </title>\
+<style>\
+/* \uc0\u1499 \u1500 \u1500 \u1497  */\
+* \{\
+    margin: 0;\
+    padding: 0;\
+    box-sizing: border-box;\
+    font-family: 'Rubik', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;\
+\}\
+\
+body \{\
+    background-color: #f8f9fa;\
+    color: #333;\
+    line-height: 1.6;\
+\}\
+\
+/* \uc0\u1492 \u1490 \u1491 \u1512 \u1493 \u1514  \u1492 \u1508 \u1506 \u1500 \u1492 /\u1499 \u1497 \u1489 \u1493 \u1497  \u1514 \u1508 \u1512 \u1497 \u1496  \u1489 \u1502 \u1493 \u1489 \u1497 \u1497 \u1500  */\
+.menu-toggle \{\
+    display: none;\
+\}\
+\
+/* \uc0\u1511 \u1493 \u1504 \u1496 \u1497 \u1497 \u1504 \u1512  */\
+.container \{\
+    max-width: 1200px;\
+    margin: 0 auto;\
+    padding: 0 20px;\
+\}\
+\
+/* \uc0\u1492 \u1491 \u1512  */\
+header \{\
+    background: linear-gradient(135deg, #0f4c81 0%, #3498db 100%);\
+    color: white;\
+    padding: 20px 0;\
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);\
+    position: fixed;\
+    width: 100%;\
+    top: 0;\
+    z-index: 1000;\
+    transition: all 0.3s ease;\
+\}\
+\
+header.scrolled \{\
+    padding: 10px 0;\
+    background: rgba(15, 76, 129, 0.95);\
+    backdrop-filter: blur(5px);\
+\}\
+\
+.header-container \{\
+    display: flex;\
+    justify-content: space-between;\
+    align-items: center;\
+\}\
+\
+.logo \{\
+    font-size: 28px;\
+    font-weight: bold;\
+    display: flex;\
+    align-items: center;\
+\}\
+\
+.logo-text \{\
+    margin-right: 10px;\
+\}\
+\
+.logo span \{\
+    color: #4cd137;\
+    font-weight: 700;\
+\}\
+\
+.logo-icon \{\
+    width: 40px;\
+    height: 40px;\
+    background-color: #4cd137;\
+    border-radius: 50%;\
+    display: flex;\
+    align-items: center;\
+    justify-content: center;\
+    color: white;\
+    font-weight: bold;\
+    font-size: 20px;\
+\}\
+\
+/* \uc0\u1514 \u1508 \u1512 \u1497 \u1496  \u1504 \u1497 \u1493 \u1493 \u1496  */\
+nav ul \{\
+    display: flex;\
+    list-style: none;\
+\}\
+\
+nav ul li \{\
+    margin-right: 25px;\
+\}\
+\
+nav ul li:last-child \{\
+    margin-right: 0;\
+\}\
+\
+nav ul li a \{\
+    color: white;\
+    text-decoration: none;\
+    font-weight: 500;\
+    transition: all 0.3s ease;\
+    padding: 8px 12px;\
+    border-radius: 4px;\
+    position: relative;\
+\}\
+\
+nav ul li a::after \{\
+    content: '';\
+    position: absolute;\
+    width: 0;\
+    height: 2px;\
+    bottom: 0;\
+    left: 0;\
+    background-color: #4cd137;\
+    transition: width 0.3s ease;\
+\}\
+\
+nav ul li a:hover::after, nav ul li a.active::after \{\
+    width: 100%;\
+\}\
+\
+nav ul li a:hover, nav ul li a.active \{\
+    color: #4cd137;\
+\}\
+\
+/* \uc0\u1490 \u1497 \u1489 \u1493 \u1512  */\
+.hero \{\
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/api/placeholder/1200/600');\
+    background-size: cover;\
+    background-position: center;\
+    background-attachment: fixed;\
+    height: 100vh;\
+    position: relative;\
+    display: flex;\
+    align-items: center;\
+    justify-content: center;\
+    text-align: center;\
+    color: white;\
+    margin-bottom: 0;\
+    margin-top: 70px;\
+\}\
+\
+.hero::before \{\
+    content: '';\
+    position: absolute;\
+    top: 0;\
+    left: 0;\
+    width: 100%;\
+    height: 100%;\
+    background: rgba(0, 0, 0, 0.2);\
+\}\
+\
+.hero-content \{\
+    position: relative;\
+    z-index: 1;\
+    max-width: 900px;\
+    padding: 40px;\
+    background: rgba(0, 0, 0, 0.3);\
+    border-radius: 10px;\
+    backdrop-filter: blur(5px);\
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);\
+    animation: fadeIn 1s ease;\
+\}\
+\
+@keyframes fadeIn \{\
+    from \{ opacity: 0; transform: translateY(20px); \}\
+    to \{ opacity: 1; transform: translateY(0); \}\
+\}\
+\
+.hero h1 \{\
+    font-size: 54px;\
+    margin-bottom: 20px;\
+    font-weight: 700;\
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);\
+\}\
+\
+.hero p \{\
+    font-size: 22px;\
+    margin-bottom: 30px;\
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);\
+\}\
+\
+.btn \{\
+    display: inline-block;\
+    background-color: #4cd137;\
+    color: white;\
+    padding: 14px 30px;\
+    border-radius: 50px;\
+    text-decoration: none;\
+    font-weight: 600;\
+    transition: all 0.3s ease;\
+    border: 2px solid transparent;\
+    box-shadow: 0 4px 12px rgba(76, 209, 55, 0.3);\
+\}\
+\
+.btn:hover \{\
+    background-color: white;\
+    color: #4cd137;\
+    border-color: #4cd137;\
+    transform: translateY(-2px);\
+    box-shadow: 0 6px 15px rgba(76, 209, 55, 0.4);\
+\}\
+\
+/* \uc0\u1495 \u1500 \u1511 \u1497 \u1501  */\
+section \{\
+    padding: 100px 0;\
+\}\
+\
+section h2 \{\
+    font-size: 42px;\
+    text-align: center;\
+    margin-bottom: 60px;\
+    position: relative;\
+    color: #0f4c81;\
+\}\
+\
+section h2::after \{\
+    content: '';\
+    display: block;\
+    width: 80px;\
+    height: 4px;\
+    background-color: #4cd137;\
+    margin: 15px auto 0;\
+    border-radius: 2px;\
+\}\
+\
+/* \uc0\u1488 \u1493 \u1491 \u1493 \u1514  */\
+.about \{\
+    background-color: #f8f9fa;\
+\}\
+\
+.about-container \{\
+    display: flex;\
+    flex-wrap: wrap;\
+    align-items: center;\
+    gap: 50px;\
+\}\
+\
+.about-image \{\
+    flex: 1;\
+    min-width: 300px;\
+    position: relative;\
+\}\
+\
+.about-image img \{\
+    width: 100%;\
+    border-radius: 10px;\
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);\
+    transition: all 0.3s ease;\
+\}\
+\
+.about-image::before \{\
+    content: '';\
+    position: absolute;\
+    top: -15px;\
+    right: -15px;\
+    width: 100%;\
+    height: 100%;\
+    border: 3px solid #4cd137;\
+    border-radius: 10px;\
+    z-index: -1;\
+\}\
+\
+.about-content \{\
+    flex: 2;\
+    min-width: 300px;\
+\}\
+\
+.about-content h3 \{\
+    font-size: 32px;\
+    margin-bottom: 25px;\
+    color: #0f4c81;\
+\}\
+\
+.about-content p \{\
+    margin-bottom: 20px;\
+    font-size: 16px;\
+    line-height: 1.8;\
+\}\
+\
+/* \uc0\u1513 \u1497 \u1512 \u1493 \u1514 \u1497 \u1501  */\
+.services \{\
+    background-color: #eef5ff;\
+    position: relative;\
+    overflow: hidden;\
+\}\
+\
+.services::before \{\
+    content: '';\
+    position: absolute;\
+    top: 0;\
+    left: 0;\
+    width: 100%;\
+    height: 100%;\
+    background-image: url('/api/placeholder/1200/600');\
+    background-size: cover;\
+    background-position: center;\
+    opacity: 0.05;\
+    z-index: 0;\
+\}\
+\
+.services-container \{\
+    display: grid;\
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));\
+    gap: 30px;\
+    position: relative;\
+    z-index: 1;\
+\}\
+\
+.service-card \{\
+    background-color: white;\
+    border-radius: 10px;\
+    overflow: hidden;\
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);\
+    transition: all 0.3s ease;\
+    border-bottom: 4px solid transparent;\
+\}\
+\
+.service-card:hover \{\
+    transform: translateY(-15px);\
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);\
+    border-bottom-color: #4cd137;\
+\}\
+\
+.service-image \{\
+    height: 200px;\
+    background-size: cover;\
+    background-position: center;\
+    position: relative;\
+\}\
+\
+.service-image::before \{\
+    content: '';\
+    position: absolute;\
+    top: 0;\
+    left: 0;\
+    width: 100%;\
+    height: 100%;\
+    background: linear-gradient(to bottom, rgba(15, 76, 129, 0.2), rgba(15, 76, 129, 0.6));\
+\}\
+\
+.service-content \{\
+    padding: 30px;\
+\}\
+\
+.service-content h3 \{\
+    font-size: 24px;\
+    margin-bottom: 15px;\
+    color: #0f4c81;\
+    position: relative;\
+    padding-bottom: 10px;\
+\}\
+\
+.service-content h3::after \{\
+    content: '';\
+    position: absolute;\
+    bottom: 0;\
+    right: 0;\
+    width: 50px;\
+    height: 3px;\
+    background-color: #4cd137;\
+\}\
+\
+.service-content p \{\
+    color: #666;\
+    line-height: 1.8;\
+\}\
+\
+/* \uc0\u1489 \u1500 \u1493 \u1490  */\
+.blog \{\
+    background-color: #f8f9fa;\
+\}\
+\
+.blog-container \{\
+    display: grid;\
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));\
+    gap: 30px;\
+\}\
+\
+.blog-card \{\
+    background-color: white;\
+    border-radius: 10px;\
+    overflow: hidden;\
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);\
+    transition: all 0.3s ease;\
+\}\
+\
+.blog-card:hover \{\
+    transform: translateY(-10px);\
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);\
+\}\
+\
+.blog-image \{\
+    height: 200px;\
+    background-size: cover;\
+    background-position: center;\
+    position: relative;\
+\}\
+\
+.blog-image::before \{\
+    content: '';\
+    position: absolute;\
+    top: 0;\
+    left: 0;\
+    width: 100%;\
+    height: 100%;\
+    background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.4));\
+\}\
+\
+.blog-content \{\
+    padding: 25px;\
+\}\
+\
+.blog-content h3 \{\
+    font-size: 20px;\
+    margin-bottom: 15px;\
+    color: #0f4c81;\
+    line-height: 1.4;\
+\}\
+\
+.blog-content .date \{\
+    color: #4cd137;\
+    font-size: 14px;\
+    margin-bottom: 15px;\
+    display: block;\
+    font-weight: 600;\
+\}\
+\
+.blog-content p \{\
+    color: #666;\
+    margin-bottom: 20px;\
+    line-height: 1.7;\
+\}\
+\
+.read-more \{\
+    color: #4cd137;\
+    text-decoration: none;\
+    font-weight: 600;\
+    display: inline-block;\
+    margin-top: 15px;\
+    position: relative;\
+    padding-left: 10px;\
+\}\
+\
+.read-more::after \{\
+    content: '\uc0\u8592 ';\
+    position: absolute;\
+    left: 0;\
+    top: 0;\
+    transition: all 0.3s ease;\
+\}\
+\
+.read-more:hover::after \{\
+    left: -5px;\
+\}\
+\
+/* \uc0\u1510 \u1493 \u1512  \u1511 \u1513 \u1512  */\
+.contact \{\
+    background-color: #eef5ff;\
+    position: relative;\
+\}\
+\
+.contact::before \{\
+    content: '';\
+    position: absolute;\
+    top: 0;\
+    left: 0;\
+    width: 100%;\
+    height: 100%;\
+    background-image: url('/api/placeholder/1200/600');\
+    background-size: cover;\
+    background-position: center;\
+    opacity: 0.05;\
+    z-index: 0;\
+\}\
+\
+.contact-container \{\
+    display: grid;\
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));\
+    gap: 50px;\
+    position: relative;\
+    z-index: 1;\
+\}\
+\
+.contact-info \{\
+    background-color: white;\
+    padding: 30px;\
+    border-radius: 10px;\
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);\
+\}\
+\
+.contact-info h3 \{\
+    font-size: 26px;\
+    margin-bottom: 25px;\
+    color: #0f4c81;\
+    position: relative;\
+    padding-bottom: 10px;\
+\}\
+\
+.contact-info h3::after \{\
+    content: '';\
+    position: absolute;\
+    bottom: 0;\
+    right: 0;\
+    width: 50px;\
+    height: 3px;\
+    background-color: #4cd137;\
+\}\
+\
+.contact-info p \{\
+    margin-bottom: 20px;\
+    color: #666;\
+\}\
+\
+.contact-info .info-item \{\
+    display: flex;\
+    margin-bottom: 20px;\
+    align-items: center;\
+\}\
+\
+.info-item i \{\
+    margin-left: 15px;\
+    font-size: 20px;\
+    color: #4cd137;\
+    min-width: 40px;\
+    height: 40px;\
+    background-color: rgba(76, 209, 55, 0.1);\
+    border-radius: 50%;\
+    display: flex;\
+    align-items: center;\
+    justify-content: center;\
+\}\
+\
+.contact-form \{\
+    background-color: white;\
+    padding: 30px;\
+    border-radius: 10px;\
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);\
+\}\
+\
+.contact-form h3 \{\
+    font-size: 26px;\
+    margin-bottom: 25px;\
+    color: #0f4c81;\
+    position: relative;\
+    padding-bottom: 10px;\
+\}\
+\
+.contact-form h3::after \{\
+    content: '';\
+    position: absolute;\
+    bottom: 0;\
+    right: 0;\
+    width: 50px;\
+    height: 3px;\
+    background-color: #4cd137;\
+\}\
+\
+.contact-form form \{\
+    display: grid;\
+    gap: 20px;\
+\}\
+\
+.form-group \{\
+    display: grid;\
+    gap: 8px;\
+\}\
+\
+.form-group label \{\
+    font-weight: 500;\
+    color: #555;\
+\}\
+\
+.form-control \{\
+    padding: 12px 15px;\
+    border: 1px solid #ddd;\
+    border-radius: 5px;\
+    font-size: 16px;\
+    width: 100%;\
+    transition: all 0.3s ease;\
+\}\
+\
+.form-control:focus \{\
+    border-color: #4cd137;\
+    outline: none;\
+    box-shadow: 0 0 0 3px rgba(76, 209, 55, 0.1);\
+\}\
+\
+textarea.form-control \{\
+    resize: vertical;\
+    min-height: 150px;\
+\}\
+\
+/* \uc0\u1508 \u1493 \u1496 \u1512  */\
+footer \{\
+    background-color: #0f4c81;\
+    color: white;\
+    padding: 50px 0 30px;\
+    text-align: center;\
+\}\
+\
+.footer-content \{\
+    margin-bottom: 30px;\
+\}\
+\
+.footer-logo \{\
+    font-size: 32px;\
+    font-weight: bold;\
+    margin-bottom: 20px;\
+    display: inline-block;\
+\}\
+\
+.footer-logo span \{\
+    color: #4cd137;\
+\}\
+\
+.footer-contact \{\
+    margin: 20px 0;\
+    color: #ccc;\
+\}\
+\
+.footer-contact a \{\
+    color: #4cd137;\
+    text-decoration: none;\
+\}\
+\
+.social-links \{\
+    display: flex;\
+    justify-content: center;\
+    gap: 15px;\
+    margin-bottom: 30px;\
+\}\
+\
+.social-links a \{\
+    display: inline-block;\
+    width: 40px;\
+    height: 40px;\
+    background-color: rgba(255,255,255,0.1);\
+    border-radius: 50%;\
+    display: flex;\
+    align-items: center;\
+    justify-content: center;\
+    transition: all 0.3s ease;\
+    color: white;\
+    font-size: 18px;\
+\}\
+\
+.social-links a:hover \{\
+    background-color: #4cd137;\
+    transform: translateY(-5px);\
+\}\
+\
+.footer-bottom \{\
+    border-top: 1px solid rgba(255,255,255,0.1);\
+    padding-top: 20px;\
+    color: #aaa;\
+    font-size: 14px;\
+\}\
+\
+/* Back to top button */\
+.back-to-top \{\
+    position: fixed;\
+    bottom: 30px;\
+    left: 30px;\
+    width: 50px;\
+    height: 50px;\
+    background-color: #4cd137;\
+    color: white;\
+    border-radius: 50%;\
+    display: flex;\
+    align-items: center;\
+    justify-content: center;\
+    font-size: 24px;\
+    text-decoration: none;\
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);\
+    opacity: 0;\
+    visibility: hidden;\
+    transition: all 0.3s ease;\
+    z-index: 99;\
+\}\
+\
+.back-to-top.visible \{\
+    opacity: 1;\
+    visibility: visible;\
+\}\
+\
+.back-to-top:hover \{\
+    background-color: #0f4c81;\
+    transform: translateY(-5px);\
+\}\
+\
+/* \uc0\u1512 \u1505 \u1508 \u1493 \u1504 \u1505 \u1497 \u1489 \u1497 \u1493 \u1514  */\
+@media (max-width: 992px) \{\
+    .hero h1 \{\
+        font-size: 42px;\
+    \}\
+    \
+    .hero p \{\
+        font-size: 20px;\
+    \}\
+    \
+    section \{\
+        padding: 80px 0;\
+    \}\
+    \
+    section h2 \{\
+        font-size: 36px;\
+        margin-bottom: 40px;\
+    \}\
+\}\
+\
+@media (max-width: 768px) \{\
+    .menu-toggle \{\
+        display: block;\
+        font-size: 24px;\
+        cursor: pointer;\
+        color: white;\
+    \}\
+    \
+    nav \{\
+        position: fixed;\
+        top: 70px;\
+        right: -100%;\
+        background-color: #0f4c81;\
+        width: 80%;\
+        height: 100vh;\
+        padding: 30px;\
+        transition: all 0.3s ease;\
+        z-index: 1000;\
+        box-shadow: -5px 0 15px rgba(0,0,0,0.1);\
+    \}\
+    \
+    nav.active \{\
+        right: 0;\
+    \}\
+    \
+    nav ul \{\
+        flex-direction: column;\
+    \}\
+    \
+    nav ul li \{\
+        margin-right: 0;\
+        margin-bottom: 20px;\
+    \}\
+    \
+    .hero \{\
+        height: 100vh;\
+        margin-top: 70px;\
+    \}\
+    \
+    .hero-content \{\
+        padding: 30px;\
+    \}\
+    \
+    .hero h1 \{\
+        font-size: 32px;\
+    \}\
+    \
+    .hero p \{\
+        font-size: 18px;\
+    \}\
+    \
+    section \{\
+        padding: 60px 0;\
+    \}\
+    \
+    section h2 \{\
+        font-size: 30px;\
+        margin-bottom: 30px;\
+    \}\
+\}\
+\
+@media (max-width: 576px) \{\
+    .hero-content \{\
+        padding: 20px;\
+    \}\
+    \
+    .hero h1 \{\
+        font-size: 28px;\
+    \}\
+    \
+    .hero p \{\
+        font-size: 16px;\
+    \}\
+    \
+    .btn \{\
+        padding: 12px 24px;\
+        font-size: 14px;\
+    \}\
+    \
+    section \{\
+        padding: 50px 0;\
+    \}\
+    \
+    section h2 \{\
+        font-size: 26px;\
+    \}\
+    \
+    .about-content h3,\
+    .contact-info h3,\
+    .contact-form h3 \{\
+        font-size: 22px;\
+    \}\
+\}\
+</style>\
+</head>\
+<body>\
+<!-- \uc0\u1492 \u1491 \u1512  -->\
+<header>\
+<div class="container header-container">\
+    <a href="#home" class="logo">\
+        <div class="logo-icon">M</div>\
+        <div class="logo-text">Mind<span>Field</span></div>\
+    </a>\
+    <div class="menu-toggle">&#9776;</div>\
+    <nav>\
+        <ul>\
+            <li><a href="#home" class="active">\uc0\u1491 \u1507  \u1492 \u1489 \u1497 \u1514 </a></li>\
+            <li><a href="#about">\uc0\u1488 \u1493 \u1491 \u1493 \u1514 </a></li>\
+            <li><a href="#services">\uc0\u1513 \u1497 \u1512 \u1493 \u1514 \u1497 \u1501 </a></li>\
+            <li><a href="#blog">\uc0\u1489 \u1500 \u1493 \u1490 </a></li>\
+            <li><a href="#contact">\uc0\u1510 \u1493 \u1512  \u1511 \u1513 \u1512 </a></li>\
+        </ul>\
+    </nav>\
+</div>\
+</header>\
+\
+<!-- \uc0\u1490 \u1497 \u1489 \u1493 \u1512  -->\
+<section id="home" class="hero">\
+<div class="hero-content">\
+    <h1>\uc0\u1502 \u1510 \u1493 \u1497 \u1504 \u1493 \u1514  \u1502 \u1504 \u1496 \u1500 \u1497 \u1514  \u1489 \u1502 \u1490 \u1512 \u1513  \u1493 \u1502 \u1495 \u1493 \u1510 \u1492  \u1500 \u1493 </h1>\
+    <p>\uc0\u1488 \u1497 \u1502 \u1493 \u1503  \u1499 \u1491 \u1493 \u1512 \u1490 \u1500  \u1502 \u1511 \u1510 \u1493 \u1506 \u1497  \u1493 \u1500 \u1497 \u1493 \u1493 \u1497  \u1508 \u1505 \u1497 \u1499 \u1493 \u1500 \u1493 \u1490 \u1497  \u1500 \u1505 \u1508 \u1493 \u1512 \u1496 \u1488 \u1497 \u1501 , \u1511 \u1489 \u1493 \u1510 \u1493 \u1514  \u1493 \u1502 \u1488 \u1502 \u1504 \u1497 \u1501 </p>\
+    <a href="#contact" class="btn">\uc0\u1511 \u1489 \u1506  \u1508 \u1490 \u1497 \u1513 \u1514  \u1497 \u1497 \u1506 \u1493 \u1509 </a>\
+</div>\
+</section>\
+\
+<!-- \uc0\u1488 \u1493 \u1491 \u1493 \u1514  -->\
+<section id="about" class="about">\
+<div class="container">\
+    <h2>\uc0\u1488 \u1493 \u1491 \u1493 \u1514 </h2>\
+    <div class="about-container">\
+        <div class="about-image">\
+            <img src="/api/placeholder/600/400" alt="\uc0\u1514 \u1502 \u1493 \u1504 \u1514  \u1492 \u1502 \u1488 \u1502 \u1503 ">\
+        </div>\
+        <div class="about-content">\
+            <h3>\uc0\u1492 \u1491 \u1512 \u1498  \u1513 \u1500 \u1497  \u1500 \u1488 \u1497 \u1502 \u1493 \u1503  \u1499 \u1491 \u1493 \u1512 \u1490 \u1500  \u1493 \u1508 \u1505 \u1497 \u1499 \u1493 \u1500 \u1493 \u1490 \u1497 \u1492  \u1505 \u1508 \u1493 \u1512 \u1496 \u1497 \u1489 \u1497 \u1514 </h3>\
+            <p>\uc0\u1513 \u1500 \u1493 \u1501 , \u1513 \u1502 \u1497  \u1506 \u1493 \u1502 \u1512  \u1506 \u1510 \u1497 \u1493 \u1504 \u1497 , \u1502 \u1488 \u1502 \u1503  \u1499 \u1491 \u1493 \u1512 \u1490 \u1500  \u1493 \u1508 \u1505 \u1497 \u1499 \u1493 \u1500 \u1493 \u1490  \u1505 \u1508 \u1493 \u1512 \u1496  \u1492 \u1502 \u1513 \u1500 \u1489  \u1497 \u1491 \u1506  \u1502 \u1506 \u1502 \u1497 \u1511  \u1489 \u1513 \u1504 \u1497  \u1492 \u1514 \u1495 \u1493 \u1502 \u1497 \u1501  \u1500 \u1508 \u1497 \u1514 \u1493 \u1495  \u1497 \u1499 \u1493 \u1500 \u1493 \u1514  \u1496 \u1499 \u1504 \u1497 \u1493 \u1514  \u1493 \u1502 \u1504 \u1496 \u1500 \u1497 \u1493 \u1514  \u1513 \u1500  \u1505 \u1508 \u1493 \u1512 \u1496 \u1488 \u1497 \u1501 . \u1499 \u1513 \u1495 \u1511 \u1503  \u1499 \u1491 \u1493 \u1512 \u1490 \u1500  \u1500 \u1513 \u1506 \u1489 \u1512 , \u1495 \u1493 \u1493 \u1497 \u1514 \u1497  \u1488 \u1497 \u1513 \u1497 \u1514  \u1488 \u1514  \u1492 \u1495 \u1513 \u1497 \u1489 \u1493 \u1514  \u1492 \u1506 \u1510 \u1493 \u1502 \u1492  \u1513 \u1500  \u1492 \u1502 \u1493 \u1499 \u1504 \u1493 \u1514  \u1492 \u1504 \u1508 \u1513 \u1497 \u1514  \u1500 \u1510 \u1491  \u1492 \u1497 \u1499 \u1493 \u1500 \u1514  \u1492 \u1496 \u1499 \u1504 \u1497 \u1514 .</p>\
+            <p>\uc0\u1488 \u1504 \u1497  \u1489 \u1506 \u1500  \u1514 \u1493 \u1488 \u1512  \u1512 \u1488 \u1513 \u1493 \u1503  \u1489 \u1508 \u1505 \u1497 \u1499 \u1493 \u1500 \u1493 \u1490 \u1497 \u1492  \u1502 \u1492 \u1488 \u1511 \u1491 \u1502 \u1497 \u1514  \u1514 \u1500  \u1488 \u1489 \u1497 \u1489 -\u1497 \u1508 \u1493  \u1493 \u1514 \u1493 \u1488 \u1512  \u1513 \u1504 \u1497  \u1489 \u1508 \u1505 \u1497 \u1499 \u1493 \u1500 \u1493 \u1490 \u1497 \u1497 \u1514  \u1505 \u1508 \u1493 \u1512 \u1496  \u1502 \u1492 \u1502 \u1499 \u1500 \u1500 \u1492  \u1500 \u1502 \u1504 \u1492 \u1500 . \u1492 \u1492 \u1499 \u1513 \u1512 \u1492  \u1492 \u1488 \u1511 \u1491 \u1502 \u1497 \u1514  \u1513 \u1500 \u1497 , \u1489 \u1513 \u1497 \u1500 \u1493 \u1489  \u1506 \u1501  \u1492 \u1504 \u1497 \u1505 \u1497 \u1493 \u1503  \u1492 \u1502 \u1506 \u1513 \u1497  \u1489 \u1513 \u1496 \u1495 , \u1502 \u1488 \u1508 \u1513 \u1512 \u1497 \u1501  \u1500 \u1497  \u1500 \u1492 \u1510 \u1497 \u1506  \u1490 \u1497 \u1513 \u1492  \u1497 \u1497 \u1495 \u1493 \u1491 \u1497 \u1514  \u1492 \u1502 \u1513 \u1500 \u1489 \u1514  \u1514 \u1497 \u1488 \u1493 \u1512 \u1497 \u1492  \u1493 \u1508 \u1512 \u1511 \u1496 \u1497 \u1511 \u1492 .</p>\
+            <p>\uc0\u1492 \u1490 \u1497 \u1513 \u1492  \u1513 \u1500 \u1497  \u1502 \u1513 \u1500 \u1489 \u1514  \u1513 \u1497 \u1496 \u1493 \u1514  \u1488 \u1497 \u1502 \u1493 \u1503  \u1502 \u1514 \u1511 \u1491 \u1502 \u1493 \u1514  \u1506 \u1501  \u1499 \u1500 \u1497 \u1501  \u1508 \u1505 \u1497 \u1499 \u1493 \u1500 \u1493 \u1490 \u1497 \u1497 \u1501  \u1502 \u1493 \u1499 \u1495 \u1497 \u1501 , \u1492 \u1502 \u1493 \u1514 \u1488 \u1502 \u1497 \u1501  \u1488 \u1497 \u1513 \u1497 \u1514  \u1500 \u1510 \u1512 \u1499 \u1497 \u1501  \u1492 \u1505 \u1508 \u1510 \u1497 \u1508 \u1497 \u1497 \u1501  \u1513 \u1500  \u1499 \u1500  \u1505 \u1508 \u1493 \u1512 \u1496 \u1488 \u1497  \u1493 \u1511 \u1489 \u1493 \u1510 \u1492 . \u1488 \u1504 \u1497  \u1502 \u1488 \u1502 \u1497 \u1503  \u1513 \u1492 \u1510 \u1500 \u1495 \u1492  \u1489 \u1505 \u1508 \u1493 \u1512 \u1496  \u1504 \u1493 \u1489 \u1506 \u1514  \u1502 \u1513 \u1497 \u1500 \u1493 \u1489  \u1513 \u1500  \u1496 \u1499 \u1504 \u1497 \u1511 \u1492 , \u1499 \u1493 \u1513 \u1512  \u1490 \u1493 \u1508 \u1504 \u1497 , \u1488 \u1505 \u1496 \u1512 \u1496 \u1490 \u1497 \u1492  \u1493 \u1502 \u1493 \u1499 \u1504 \u1493 \u1514  \u1502 \u1504 \u1496 \u1500 \u1497 \u1514 .</p>\
+        </div>\
+    </div>\
+</div>\
+</section>\
+\
+<!-- \uc0\u1513 \u1497 \u1512 \u1493 \u1514 \u1497 \u1501  -->\
+<section id="services" class="services">\
+<div class="container">\
+    <h2>\uc0\u1492 \u1513 \u1497 \u1512 \u1493 \u1514 \u1497 \u1501  \u1513 \u1500 \u1504 \u1493 </h2>\
+    <div class="services-container">\
+        <div class="service-card">\
+            <div class="service-image" style="background-image: url('/api/placeholder/400/250')"></div>\
+            <div class="service-content">\
+                <h3>\uc0\u1488 \u1497 \u1502 \u1493 \u1503  \u1499 \u1491 \u1493 \u1512 \u1490 \u1500  \u1488 \u1497 \u1513 \u1497 </h3>\
+                <p>\uc0\u1488 \u1497 \u1502 \u1493 \u1503  \u1488 \u1497 \u1513 \u1497  \u1492 \u1502 \u1493 \u1514 \u1488 \u1501  \u1500 \u1510 \u1512 \u1499 \u1497 \u1501  \u1492 \u1505 \u1508 \u1510 \u1497 \u1508 \u1497 \u1497 \u1501  \u1513 \u1500 \u1498 , \u1492 \u1502 \u1514 \u1502 \u1511 \u1491  \u1489 \u1513 \u1497 \u1508 \u1493 \u1512  \u1492 \u1502 \u1497 \u1493 \u1502 \u1504 \u1493 \u1497 \u1493 \u1514  \u1492 \u1496 \u1499 \u1504 \u1497 \u1493 \u1514 , \u1492 \u1496 \u1511 \u1496 \u1497 \u1493 \u1514  \u1493 \u1492 \u1502 \u1504 \u1496 \u1500 \u1497 \u1493 \u1514  \u1513 \u1500 \u1498  \u1499 \u1513 \u1495 \u1511 \u1503 . \u1489 \u1504 \u1497 \u1497 \u1514  \u1514 \u1499 \u1504 \u1497 \u1514  \u1488 \u1497 \u1502 \u1493 \u1504 \u1497 \u1501  \u1508 \u1512 \u1505 \u1493 \u1504 \u1500 \u1497 \u1514  \u1500 \u1513 \u1497 \u1508 \u1493 \u1512  \u1492 \u1489 \u1497 \u1510 \u1493 \u1506 \u1497 \u1501  \u1493 \u1500 \u1492 \u1513 \u1490 \u1514  \u1492 \u1502 \u1496 \u1512 \u1493 \u1514  \u1492 \u1488 \u1497 \u1513 \u1497 \u1493 \u1514  \u1513 \u1500 \u1498 .</p>\
+            </div>\
+        </div>\
+        <div class="service-card">\
+            <div class="service-image" style="background-image: url('/api/placeholder/400/250')"></div>\
+            <div class="service-content">\
+                <h3>\uc0\u1500 \u1497 \u1493 \u1493 \u1497  \u1508 \u1505 \u1497 \u1499 \u1493 \u1500 \u1493 \u1490 \u1497  \u1500 \u1505 \u1508 \u1493 \u1512 \u1496 \u1488 \u1497 \u1501 </h3>\
+                <p>\uc0\u1500 \u1497 \u1493 \u1493 \u1497  \u1508 \u1505 \u1497 \u1499 \u1493 \u1500 \u1493 \u1490 \u1497  \u1488 \u1497 \u1513 \u1497  \u1500 \u1505 \u1508 \u1493 \u1512 \u1496 \u1488 \u1497 \u1501  \u1492 \u1502 \u1489 \u1511 \u1513 \u1497 \u1501  \u1500 \u1508 \u1514 \u1495  \u1495 \u1493 \u1505 \u1503  \u1502 \u1504 \u1496 \u1500 \u1497 , \u1500 \u1492 \u1514 \u1490 \u1489 \u1512  \u1506 \u1500  \u1495 \u1505 \u1502 \u1497 \u1501  \u1508 \u1505 \u1497 \u1499 \u1493 \u1500 \u1493 \u1490 \u1497 \u1497 \u1501 , \u1500 \u1492 \u1514 \u1502 \u1493 \u1491 \u1491  \u1506 \u1501  \u1500 \u1495 \u1509  \u1493 \u1500 \u1513 \u1508 \u1512  \u1488 \u1514  \u1492 \u1508 \u1493 \u1511 \u1493 \u1505  \u1493 \u1492 \u1512 \u1497 \u1499 \u1493 \u1494 . \u1508 \u1497 \u1514 \u1493 \u1495  \u1496 \u1499 \u1504 \u1497 \u1511 \u1493 \u1514  \u1500 \u1513 \u1500 \u1497 \u1496 \u1492  \u1512 \u1490 \u1513 \u1497 \u1514  \u1493 \u1489 \u1497 \u1510 \u1493 \u1506 \u1497 \u1501  \u1488 \u1493 \u1508 \u1496 \u1497 \u1502 \u1500 \u1497 \u1497 \u1501  \u1489 \u1502 \u1510 \u1489 \u1497  \u1500 \u1495 \u1509 .</p>\
+            </div>\
+        </div>\
+        <div class="service-card">\
+            <div class="service-image" style="background-image: url('/api/placeholder/400/250')"></div>\
+            <div class="service-content">\
+                <h3>\uc0\u1488 \u1497 \u1502 \u1493 \u1503  \u1493 \u1500 \u1497 \u1493 \u1493 \u1497  \u1511 \u1489 \u1493 \u1510 \u1514 \u1497 </h3>\
+                <p>\uc0\u1508 \u1497 \u1514 \u1493 \u1495  \u1500 \u1499 \u1497 \u1491 \u1493 \u1514  \u1511 \u1489 \u1493 \u1510 \u1514 \u1497 \u1514 , \u1513 \u1497 \u1508 \u1493 \u1512  \u1492 \u1514 \u1511 \u1513 \u1493 \u1512 \u1514  \u1489 \u1497 \u1503  \u1492 \u1513 \u1495 \u1511 \u1504 \u1497 \u1501 , \u1489 \u1504 \u1497 \u1497 \u1514  \u1488 \u1505 \u1496 \u1512 \u1496 \u1490 \u1497 \u1493 \u1514  \u1502 \u1513 \u1495 \u1511  \u1493 \u1492 \u1496 \u1502 \u1506 \u1514  \u1514 \u1512 \u1489 \u1493 \u1514  \u1513 \u1500  \u1502 \u1510 \u1493 \u1497 \u1504 \u1493 \u1514 . \u1488 \u1497 \u1502 \u1493 \u1503  \u1511 \u1489 \u1493 \u1510 \u1514 \u1497  \u1492 \u1502 \u1513 \u1500 \u1489  \u1502 \u1512 \u1499 \u1497 \u1489 \u1497 \u1501  \u1496 \u1499 \u1504 \u1497 \u1497 \u1501 , \u1496 \u1511 \u1496 \u1497 \u1497 \u1501  \u1493 \u1502 \u1504 \u1496 \u1500 \u1497 \u1497 \u1501  \u1500 \u1513 \u1497 \u1508 \u1493 \u1512  \u1492 \u1489 \u1497 \u1510 \u1493 \u1506 \u1497 \u1501  \u1492 \u1511 \u1489 \u1493 \u1510 \u1514 \u1497 \u1497 \u1501 .</p>\
+            </div>\
+        </div>\
+        <div class="service-card">\
+            <div class="service-image" style="background-image: url('/api/placeholder/400/250')"></div>\
+            <div class="service-content">\
+                <h3>\uc0\u1492 \u1491 \u1512 \u1499 \u1493 \u1514  \u1500 \u1502 \u1488 \u1502 \u1504 \u1497 \u1501 </h3>\
+                <p>\uc0\u1505 \u1491 \u1504 \u1488 \u1493 \u1514  \u1493 \u1492 \u1491 \u1512 \u1499 \u1493 \u1514  \u1500 \u1502 \u1488 \u1502 \u1504 \u1497 \u1501  \u1489 \u1504 \u1493 \u1513 \u1488  \u1513 \u1497 \u1500 \u1493 \u1489  \u1488 \u1505 \u1508 \u1511 \u1496 \u1497 \u1501  \u1508 \u1505 \u1497 \u1499 \u1493 \u1500 \u1493 \u1490 \u1497 \u1497 \u1501  \u1489 \u1488 \u1497 \u1502 \u1493 \u1503 , \u1494 \u1497 \u1492 \u1493 \u1497  \u1495 \u1505 \u1502 \u1497 \u1501  \u1502 \u1504 \u1496 \u1500 \u1497 \u1497 \u1501  \u1488 \u1510 \u1500  \u1513 \u1495 \u1511 \u1504 \u1497 \u1501 , \u1508 \u1497 \u1514 \u1493 \u1495  \u1502 \u1504 \u1492 \u1497 \u1490 \u1493 \u1514  \u1493 \u1504 \u1497 \u1492 \u1493 \u1500  \u1511 \u1489 \u1493 \u1510 \u1492  \u1488 \u1508 \u1511 \u1496 \u1497 \u1489 \u1497 . \u1499 \u1500 \u1497 \u1501  \u1502 \u1506 \u1513 \u1497 \u1497 \u1501  \u1500 \u1492 \u1506 \u1510 \u1502 \u1514  \u1513 \u1495 \u1511 \u1504 \u1497 \u1501  \u1493 \u1497 \u1510 \u1497 \u1512 \u1514  \u1505 \u1489 \u1497 \u1489 \u1514  \u1488 \u1497 \u1502 \u1493 \u1503  \u1488 \u1493 \u1508 \u1496 \u1497 \u1502 \u1500 \u1497 \u1514 .</p>\
+            </div>\
+        </div>\
+    </div>\
+</div>\
+</section>\
+\
+<!-- \uc0\u1489 \u1500 \u1493 \u1490  -->\
+<section id="blog" class="blog">\
+<div class="container">\
+    <h2>\uc0\u1492 \u1502 \u1488 \u1502 \u1512 \u1497 \u1501  \u1513 \u1500 \u1504 \u1493 </h2>\
+    <div class="blog-container">\
+        <div class="blog-card">\
+            <div class="blog-image" style="background-image: url('/api/placeholder/400/250')"></div>\
+            <div class="blog-content">\
+                <span class="date">12 \uc0\u1502 \u1512 \u1509 , 2025</span>\
+                <h3>5 \uc0\u1496 \u1499 \u1504 \u1497 \u1511 \u1493 \u1514  \u1502 \u1504 \u1496 \u1500 \u1497 \u1493 \u1514  \u1500 \u1513 \u1497 \u1508 \u1493 \u1512  \u1489 \u1497 \u1510 \u1493 \u1506 \u1497 \u1501  \u1500 \u1508 \u1504 \u1497  \u1502 \u1513 \u1495 \u1511  \u1495 \u1513 \u1493 \u1489 </h3>\
+                <p>\uc0\u1499 \u1497 \u1510 \u1491  \u1513 \u1495 \u1511 \u1504 \u1497  \u1499 \u1491 \u1493 \u1512 \u1490 \u1500  \u1497 \u1499 \u1493 \u1500 \u1497 \u1501  \u1500 \u1492 \u1514 \u1499 \u1493 \u1504 \u1503  \u1502 \u1504 \u1496 \u1500 \u1497 \u1514  \u1500 \u1502 \u1513 \u1495 \u1511 \u1497 \u1501  \u1495 \u1513 \u1493 \u1489 \u1497 \u1501 ? \u1489 \u1502 \u1488 \u1502 \u1512  \u1494 \u1492  \u1488 \u1510 \u1497 \u1490  5 \u1496 \u1499 \u1504 \u1497 \u1511 \u1493 \u1514  \u1502 \u1493 \u1499 \u1495 \u1493 \u1514  \u1500 \u1513 \u1497 \u1508 \u1493 \u1512  \u1492 \u1512 \u1497 \u1499 \u1493 \u1494 , \u1492 \u1508 \u1495 \u1514 \u1514  \u1500 \u1495 \u1509  \u1493 \u1492 \u1490 \u1489 \u1512 \u1514  \u1492 \u1489 \u1497 \u1496 \u1495 \u1493 \u1503  \u1492 \u1506 \u1510 \u1502 \u1497  \u1500 \u1508 \u1504 \u1497  \u1502 \u1513 \u1495 \u1511 \u1497 \u1501  \u1502 \u1499 \u1512 \u1497 \u1506 \u1497 \u1501 .</p>\
+                <a href="#" class="read-more">\uc0\u1511 \u1512 \u1488  \u1506 \u1493 \u1491 </a>\
+            </div>\
+        </div>\
+        <div class="blog-card">\
+            <div class="blog-image" style="background-image: url('/api/placeholder/400/250')"></div>\
+            <div class="blog-content">\
+                <span class="date">26 \uc0\u1508 \u1489 \u1512 \u1493 \u1488 \u1512 , 2025</span>\
+                <h3>\uc0\u1492 \u1514 \u1502 \u1493 \u1491 \u1491 \u1493 \u1514  \u1506 \u1501  \u1508 \u1510 \u1497 \u1506 \u1493 \u1514 : \u1492 \u1492 \u1497 \u1489 \u1496  \u1492 \u1508 \u1505 \u1497 \u1499 \u1493 \u1500 \u1493 \u1490 \u1497  \u1489 \u1514 \u1492 \u1500 \u1497 \u1498  \u1492 \u1492 \u1495 \u1500 \u1502 \u1492 </h3>\
+                <p>\uc0\u1508 \u1510 \u1497 \u1506 \u1493 \u1514  \u1492 \u1503  \u1495 \u1500 \u1511  \u1489 \u1500 \u1514 \u1497  \u1504 \u1508 \u1512 \u1491  \u1502 \u1506 \u1493 \u1500 \u1501  \u1492 \u1505 \u1508 \u1493 \u1512 \u1496 . \u1489 \u1502 \u1488 \u1502 \u1512  \u1494 \u1492  \u1488 \u1491 \u1493 \u1503  \u1489 \u1492 \u1513 \u1508 \u1506 \u1493 \u1514  \u1492 \u1508 \u1505 \u1497 \u1499 \u1493 \u1500 \u1493 \u1490 \u1497 \u1493 \u1514  \u1513 \u1500  \u1508 \u1510 \u1497 \u1506 \u1493 \u1514  \u1506 \u1500  \u1505 \u1508 \u1493 \u1512 \u1496 \u1488 \u1497 \u1501  \u1493 \u1488 \u1510 \u1497 \u1506  \u1488 \u1505 \u1496 \u1512 \u1496 \u1490 \u1497 \u1493 \u1514  \u1500 \u1492 \u1514 \u1502 \u1493 \u1491 \u1491 \u1493 \u1514  \u1504 \u1508 \u1513 \u1497 \u1514  \u1489 \u1514 \u1511 \u1493 \u1508 \u1514  \u1492 \u1513 \u1497 \u1511 \u1493 \u1501  \u1493 \u1492 \u1495 \u1494 \u1512 \u1492  \u1500 \u1508 \u1506 \u1497 \u1500 \u1493 \u1514 .</p>\
+                <a href="#" class="read-more">\uc0\u1511 \u1512 \u1488  \u1506 \u1493 \u1491 </a>\
+            </div}
